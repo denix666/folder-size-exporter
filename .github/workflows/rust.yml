@@ -1,0 +1,32 @@
+name: Build
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  linux_build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Prep
+      run: sudo apt-get install libasound-dev -y
+      
+    - uses: actions/checkout@v3
+    - name: Build
+      run: cargo build --release
+
+    - shell: bash
+      run: |
+        mv target/release/folder-size-exporter folder-size-exporter
+        chmod 777 folder-size-exporter
+        tar cpfz folder-size-exporter_linux_x86_64.tar.gz folder-size-exporter
+        
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: folder-size-exporter_linux_x86_64.tar.gz
