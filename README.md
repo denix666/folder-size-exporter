@@ -3,7 +3,10 @@ Folders size exporter written in Rust. This tool exports the defined folders siz
 
 ## Intallation steps:
 
-Place binary under __/usr/local/bin/folder-size-exporter__
+Precompiled binary can be found here: https://github.com/denix666/folder-size-exporter/releases
+
+
+Download, extract and place it under __/usr/local/bin/folder-size-exporter__
 
 
 Create the configuration file: __/etc/folder-size-exporter/config.json__
