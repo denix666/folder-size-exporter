@@ -1,0 +1,15 @@
+[package]
+name = "folder-size-exporter"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = "0.6.18"
+axum-server = "0.5.1"
+tokio = { version = "1.28.1", features = ["full"] }
+serde_json = "1.0.96"
+denlibs = "0.1.9"
+serde = { version = "1.0.163", features = ["derive"] }
+minijinja = { version = "1.0.10", features = ["builtins"] }
